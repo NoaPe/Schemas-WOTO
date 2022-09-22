@@ -1,0 +1,23 @@
+{
+    "datas": {
+        "name": {
+            "type": "String",
+            "required": true,
+            "label": "Nom",
+            "description": "Name of the user",
+            "fillable": true,
+            "unique": true,
+            "max": 50
+        },
+        
+        "crew_type": {
+            "type": "HasOne",
+            "required": true,
+            "description": "Crew type of the crew",
+            "fillable": true,
+            "settings": {
+                "class": "App\\Shells\\CrewType"
+            }
+        }
+    }
+}

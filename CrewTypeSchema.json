@@ -1,0 +1,11 @@
+{
+    "datas": {
+        "name": {
+            "type": "String",
+            "required": true,
+            "label": "Nom",
+            "description": "Name of the crew type",
+            "fillable": true
+        }
+    }
+}

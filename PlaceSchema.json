@@ -1,0 +1,147 @@
+{
+    "render": "one-page-per-group",
+
+    "groups": {
+        "informations": {
+            "label": "Informations générales",
+            "render": "one-page",
+            "datas": {
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "label": "Nom du lieu",
+                    "description": "Name of the depollution",
+                    "fillable": true,
+                    "unique": true,
+                    "max": 255,
+                    "settings": {
+                        "row": 1
+                    }
+                },
+        
+                "city": {
+                    "type": "String",
+                    "required": false,
+                    "label": "Agglomération ou commune",
+                    "nullable": true,
+                    "description": "City of the depollution",
+                    "fillable": true,
+                    "unique": false,
+                    "max": 255,
+                    "settings": {
+                        "row": 2,
+                        "col": 6
+                    }
+                },
+        
+                "state": {
+                    "type": "String",
+                    "label": "Pays",
+                    "required": true,
+                    "description": "State of the depollution place.",
+                    "settings": {
+                        "row": 2,
+                        "col": 6
+                    }
+                }
+            }
+        },
+
+        "place": {
+            "label": "Définition du lieu",
+            "render": "one-page-per-data",
+            "datas": {
+                "localisation": {
+                    "type": "Geo\\Position",
+                    "required": true,
+                    "label": "Posez un point sur la carte pour définir le lieu de la dépollution.",
+                    "description": "Localisation of the depollution",
+                    "fillable": true,
+                    "unique": false
+                }
+            }
+        },
+
+        "length": {
+            "label": "Longueur de la dépollution",
+            "datas": {
+                "polyline": {
+                    "type": "Geo\\Polyline",
+                    "required": true,
+                    "label": "Tracez une ligne sur la carte pour définir la longueur de la dépollution.",
+                    "description": "Polyline of the depollution",
+                    "fillable": true,
+                    "unique": false
+                }
+            }
+        },
+
+        "zone": {
+            "label": "Définition de la surface dépolluée",
+            "datas": {
+                "surface": {
+                    "type": "Geo\\Polygon",
+                    "label": "Tracez une forme sur la carte pour définir la zone déppolluée.",
+                    "required": true
+                }
+            }
+        },
+
+        "type": {
+            "render": "one-page",
+            "label": "Définition du type de lieu",
+            "datas": {
+                "place_type": {
+                    "type": "Select",
+                    "required": true,
+                    "description": "Type of the depollution place",
+                    "fillable": true,
+                    "label": "Type de lieu",
+                    "settings": {
+                        "options": {
+                            "Littoral-Port-Zones humides": [
+                                "Rocher (naturel)",
+                                "Plage (sable, galets, gravillons)",
+                                "Port",
+                                "Ouvrages côtiers (digues, enrochements, ...)"
+                            ],
+                            "Estuaire": [
+                                "Berges",
+                                "Port",
+                                "Ouvrages (digues, ...)", "Plage", "Lit"
+                            ],
+                            "Mer-Océan": [
+                                "Mer-Océan"
+                            ],
+                            "Lacs-Cours d'eau-Marais-Zones humides": [
+                                "Plan d'eau - lit",
+                                "Plage (sable, galets, gravillons)",
+                                "Berges",
+                                "Port - barrage - écluse"
+                            ],
+                            "Zone urbaine": [
+                                "Voie de chemin de fer",
+                                "Infrastructure routière (route, rue, avenue, boulevard, place ...)",
+                                "Parc urbain - Jardin public"
+                            ],
+                            "Zone rurale": [
+                                "Voie de chemin de fer",
+                                "Forêt - bois",
+                                "Champ - pairie - lande - garrigue - maquis",
+                                "Chemin de randonnée - vtt - équestre",
+                                "Autre espace naturel"
+                            ],
+                            "Montagne": [
+                                "Forêt - bois",
+                                "Chemin de randonnée - vtt - équestre",
+                                "Piste de ski",
+                                "Station de ski",
+                                "Autre espace naturel"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
