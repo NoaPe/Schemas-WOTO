@@ -8,21 +8,24 @@
                     "type": "String",
                     "required": true,
                     "label": "Nom du déchet",
-                    "description": "Nom que vous trouvez pertinent pour désigner le déchet."
+                    "description": "Nom que vous trouvez pertinent pour désigner le déchet.",
+                    "fillable": true
                 },
 
                 "volume": {
                     "type": "Float",
                     "required": true,
                     "label": "Volume de déchet",
-                    "description": "Volume du déchet en littre que vous avez ramassé."
+                    "description": "Volume du déchet en littre que vous avez ramassé.",
+                    "fillable": true
                 },
 
                 "description": {
                     "type": "Text",
                     "required": false,
                     "label": "Description",
-                    "description": "Description du déchet."
+                    "description": "Description du déchet.",
+                    "fillable": true
                 }
             }
         },
@@ -42,7 +45,8 @@
                             "Avec des sacs de volume connu",
                             "Avec un instrument de mesure plus précis (ex: contenant gradué)"
                         ]
-                    }
+                    },
+                    "fillable": true
                 },
 
                 "origin": {
@@ -58,14 +62,16 @@
                             "Forêt",
                             "Autre provenance"
                         ]
-                    }
+                    },
+                    "fillable": true
                 },
 
                 "comment": {
                     "type": "Text",
                     "required": false,
                     "label": "Commentaire",
-                    "description": "Tout autre commentaire que vous trouverez pertinent sur le déchet."
+                    "description": "Tout autre commentaire que vous trouverez pertinent sur le déchet.",
+                    "fillable": true
                 }
             }
         },
@@ -78,14 +84,16 @@
                     "type": "Float",
                     "required": false,
                     "label": "Poids",
-                    "description": "Poids total de ce déchet en kilogramme (Information non obligatoire)."
+                    "description": "Poids total de ce déchet en kilogramme (Information non obligatoire).",
+                    "fillable": true
                 },
 
                 "number": {
                     "type": "Integer",
                     "required": false,
                     "label": "Nombre de déchets",
-                    "description": "Nombre total de ce déchet ramassé (Information non obligatoire)."
+                    "description": "Nombre total de ce déchet ramassé (Information non obligatoire).",
+                    "fillable": true
                 }
             }
         }

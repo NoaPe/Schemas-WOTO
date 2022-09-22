@@ -1,0 +1,132 @@
+{
+    "render": "one-page-per-group",
+    "groups": {
+        "organisation": {
+            "datas": {
+                "date": {
+                    "type": "Date",
+                    "label": "Date",
+                    "required": true,
+                    "fillable": true
+                },
+
+                "duration": {
+                    "type": "Hour",
+                    "label": "Durée de l'évènement",
+                    "required": true,
+                    "fillable": true
+                },
+
+                "participants_wings_number": {
+                    "type": "Number",
+                    "label": "Nombre de participant·e·s de Wings of the Ocean",
+                    "required": true,
+                    "fillable": true
+                },
+
+                "participants_other_number": {
+                    "type": "Number",
+                    "label": "Nombre de participant·e·s externes à l'association",
+                    "required": true,
+                    "fillable": true
+                }
+            }
+        },
+        
+        "place_selection": {
+            "datas": {
+                "place": {
+                    "type": "HasOne",
+                    "label": "Sélectionnez le lieu de l'évènement",
+                    "required": true,
+                    "fillable": true,
+                    "settings": {
+                        "class": "App\\Shells\\Place"
+                    }
+                }
+            }
+        },
+
+        "crew_selection": {
+            "datas": {
+                "crew": {
+                    "type": "HasOne",
+                    "label": "Sélectionnez l'équipe de dépollution",
+                    "required": true,
+                    "fillable": true,
+                    "settings": {
+                        "class": "App\\Shells\\Crew"
+                    }
+                },
+
+                "other_structure": {
+                    "type": "String",
+                    "label": "Autres structures",
+                    "description": "S'il y a plusieurs structures, séparez chacune d'entre elles d'une virgule ','",
+                    "required": false,
+                    "fillable": true
+                }
+            }
+        },
+
+        "pollution_description": {
+            "datas": {
+                "waste_type": {
+                    "type": "MultipleSelect",
+                    "label": "Type de déchets",
+                    "required": true,
+                    "fillable": true,
+                    "settings": {
+                        "options": [
+                            "Echoués",
+                            "Présents au sol",
+                            "Enfouis",
+                            "Flottants",
+                            "Sur les fons sous-marins",
+                            "Indifférenciés"
+                        ]
+                    }
+                },
+
+                "nearby_activities": {
+                    "type": "MultipleSelect",
+                    "label": "Activités à proximité",
+                    "required": true,
+                    "fillable": true,
+                    "settings": {
+                        "options": [
+                            "Pêche locale",
+                            "Pêche industrielle (chalutier...)",
+                            "Activités commerciales",
+                            "Tourisme",
+                            "Activités portuaires",
+                            "Plaisance",
+                            "Activités industrielles",
+                            "Activités agricoles",
+                            "Industrie portuaire",
+                            "Activités nautiques (plongée, kayak...)",
+                            "Conchyliculture",
+                            "Restauration ou bar",
+                            "Autres activités"
+                        ]
+                    }
+                },
+
+                "human_attendance": {
+                    "type": "Select",
+                    "label": "Fréquentation humaine",
+                    "required": true,
+                    "fillable": true,
+                    "settings": {
+                        "options": [
+                            "Sauvage",
+                            "Peu fréquentée",
+                            "Fréquentée",
+                            "Très fréquentée"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
