@@ -1,0 +1,93 @@
+{
+    "groups": {
+        "basic_informations": {
+            "render": "one-line",
+            
+            "datas": {
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "label": "Nom du déchet",
+                    "description": "Nom que vous trouvez pertinent pour désigner le déchet."
+                },
+
+                "volume": {
+                    "type": "Float",
+                    "required": true,
+                    "label": "Volume de déchet",
+                    "description": "Volume du déchet en littre que vous avez ramassé."
+                },
+
+                "description": {
+                    "type": "Text",
+                    "required": false,
+                    "label": "Description",
+                    "description": "Description du déchet."
+                }
+            }
+        },
+
+        "pickup_informations": {
+            "render": "one-line",
+            
+            "datas": {
+                "estimation_method": {
+                    "type": "Select",
+                    "required": true,
+                    "label": "Méthode d'estimation du volume",
+                    "settings": {
+                        "render": "radio",
+                        "options": [
+                            "A l’œil",
+                            "Avec des sacs de volume connu",
+                            "Avec un instrument de mesure plus précis (ex: contenant gradué)"
+                        ]
+                    }
+                },
+
+                "origin": {
+                    "type": "MultipleSelect",
+                    "required": false,
+                    "label": "Provenances principales du déchet",
+                    "settings": {
+                        "render": "checkbox",
+                        "options": [
+                            "Abandonné au sol sur le lieu",
+                            "De la mer",
+                            "Crue de rivière",
+                            "Forêt",
+                            "Autre provenance"
+                        ]
+                    }
+                },
+
+                "comment": {
+                    "type": "Text",
+                    "required": false,
+                    "label": "Commentaire",
+                    "description": "Tout autre commentaire que vous trouverez pertinent sur le déchet."
+                }
+            }
+        },
+
+        "sizing": {
+            "render": "one-line",
+            
+            "datas": {
+                "poids": {
+                    "type": "Float",
+                    "required": false,
+                    "label": "Poids",
+                    "description": "Poids total de ce déchet en kilogramme (Information non obligatoire)."
+                },
+
+                "number": {
+                    "type": "Integer",
+                    "required": false,
+                    "label": "Nombre de déchets",
+                    "description": "Nombre total de ce déchet ramassé (Information non obligatoire)."
+                }
+            }
+        }
+    }
+}
