@@ -11,7 +11,7 @@
         },
         
         "crew_type": {
-            "type": "HasOne",
+            "type": "BelongsTo",
             "required": true,
             "description": "Crew type of the crew",
             "fillable": true,
