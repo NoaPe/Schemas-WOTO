@@ -18,14 +18,14 @@
                 },
 
                 "participants_wings_number": {
-                    "type": "Number",
+                    "type": "Integer",
                     "label": "Nombre de participant·e·s de Wings of the Ocean",
                     "required": true,
                     "fillable": true
                 },
 
                 "participants_other_number": {
-                    "type": "Number",
+                    "type": "Integer",
                     "label": "Nombre de participant·e·s externes à l'association",
                     "required": true,
                     "fillable": true
@@ -36,7 +36,7 @@
         "place_selection": {
             "datas": {
                 "place": {
-                    "type": "HasOne",
+                    "type": "BelongsTo",
                     "label": "Sélectionnez le lieu de l'évènement",
                     "required": true,
                     "fillable": true,
@@ -50,7 +50,7 @@
         "crew_selection": {
             "datas": {
                 "crew": {
-                    "type": "HasOne",
+                    "type": "BelongsTo",
                     "label": "Sélectionnez l'équipe de dépollution",
                     "required": true,
                     "fillable": true,
@@ -124,6 +124,724 @@
                             "Fréquentée",
                             "Très fréquentée"
                         ]
+                    }
+                }
+            }
+        },
+        
+        "after_depollution": {
+            "datas": {
+                "remaining_waste": {
+                    "type": "Select",
+                    "label": "Quantité restante de déchet",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "render": "radio",
+                        "options": [
+                            "Plus de la moitié",
+                            "Beaucoup",
+                            "Peu",
+                            "Presque rien"
+                        ]
+                    }
+                },
+
+                "why_remaining_waste": {
+                    "type": "MultipleSelect",
+                    "label": "S'il en reste, pourquoi ?",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "options": [
+                            "Inaccessibles ou bloqués",
+                            "Trop petits et nombreux",
+                            "Manque de temps",
+                            "Autre raison"
+                        ]
+                    }
+                },
+
+                "remaining_comments": {
+                    "type": "Text",
+                    "label": "Commentaires à propos des déchets restants",
+                    "required": false,
+                    "fillable": true
+                }
+            }
+        },
+
+        "indicator_waste_level_2": {
+            "label": "Nombre de déchets indicateurs niveau 2.",
+            "description": `Chaque section de la caractérisation des déchets se fait indépendamment.
+            Les déchets qui sont caractérisés dans une partie ne se substituent pas aux autres.
+            ex : quand j'ai compté le nombre de bouteilles en plastique dans les déchets indicateurs,
+            je vais également mesurer leurs poids et volume (et je peux les renseigner en déchets
+            spécifique en plus dans le cas d'une marque prédominante par exemple)`,
+            "render": "one-column",
+            "datas": {
+                "plastic_bottle": {
+                    "type": "Integer",
+                    "label": "Bouteille plastique alimentaire",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "glasse_bottle": {
+                    "type": "Integer",
+                    "label": "Bouteille en verre",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "cans": {
+                    "type": "Integer",
+                    "label": "Canette en métal",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "mask": {
+                    "type": "Integer",
+                    "label": "Masque chirurgical",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "butt": {
+                    "type": "Integer",
+                    "label": "Mégot",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "tire": {
+                    "type": "Integer",
+                    "label": "Pneu",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                }
+            }
+        },
+
+        "indicator_waste_level_3": {
+            "label": "Nombre de déchets indicateurs niveau 3.",
+            "description": `Chaque section de la caractérisation des déchets se fait indépendamment.
+            Les déchets qui sont caractérisés dans une partie ne se substituent pas aux autres.
+            ex : quand j'ai compté le nombre de bouteilles en plastique dans les déchets indicateurs,
+            je vais également mesurer leurs poids et volume (et je peux les renseigner en déchets
+            spécifique en plus dans le cas d'une marque prédominante par exemple)`,
+            "datas": {
+                "household_device": {
+                    "type": "Integer",
+                    "label": "Appareil ménager",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "balloon": {
+                    "type": "Integer",
+                    "label": "Ballon de baudruche",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "lollipop_stick": {
+                    "type": "Integer",
+                    "label": "Bâton de sucette",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "battery": {
+                    "type": "Integer",
+                    "label": "Batterie",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "bait_box": {
+                    "type": "Integer",
+                    "label": "Boite d'appâts",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "medicine_box": {
+                    "type": "Integer",
+                    "label": "Boite de médicaments",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "plastic_cap": {
+                    "type": "Integer",
+                    "label": "Bouchon en plastique",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+                
+                "inedible_plastic_bottle": {
+                    "type": "Integer",
+                    "label": "Bouteille plastique non alimentaire",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "lighter": {
+                    "type": "Integer",
+                    "label": "Briquet",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "capsule": {
+                    "type": "Integer",
+                    "label": "Capsule et tirette",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "cartridge": {
+                    "type": "Integer",
+                    "label": "Cartouche et bourre de chasse",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "shoe": {
+                    "type": "Integer",
+                    "label": "Chaussure",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "rope": {
+                    "type": "Integer",
+                    "label": "Cordage et ficelle",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "cotton_swab": {
+                    "type": "Integer",
+                    "label": "Coton-tige plastique",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "food_packaging": {
+                    "type": "Integer",
+                    "label": "Emballage alimentaire",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "fishing_line": {
+                    "type": "Integer",
+                    "label": "Fil de pêche",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "fish_net": {
+                    "type": "Integer",
+                    "label": "Filet de pêche",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "plastic_cup": {
+                    "type": "Integer",
+                    "label": "Gobelet en plastique",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "plastic_toy": {
+                    "type": "Integer",
+                    "label": "Jouet en plastique",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "fishing_equipment": {
+                    "type": "Integer",
+                    "label": "Matériel de pêche (hors plomb, fil et filet)",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+                
+                "mousse": {
+                    "type": "Integer",
+                    "label": "Mousse",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "plastic_straw": {
+                    "type": "Integer",
+                    "label": "Paille en plastique",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "fishing lead": {
+                    "type": "Integer",
+                    "label": "Plomb de pêche",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "plastic_bag": {
+                    "type": "Integer",
+                    "label": "Sac plastique",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "hygiene_protection": {
+                    "type": "Integer",
+                    "label": "Protection hygiénique",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "plastic_tableware": {
+                    "type": "Integer",
+                    "label": "Vaisselle en plastique",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                },
+
+                "cloth": {
+                    "type": "Integer",
+                    "label": "Vêtement et chiffon",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "row": 1,
+                        "ratio": "10/2"
+                    }
+                }
+            }
+        },
+
+        "quantitative_characterization": {
+            "label": "Caractérisation quantitative des déchets.",
+            "render": "table",
+            "groups": {
+                "non_recyclable_plastic": {
+                    "label": "Plastique non recyclable",
+                    "datas": {
+                        "non_recyclable_plastic_weight": {
+                            "type": "Integer",
+                            "label": "Poids (kg)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "kg"
+                        },
+
+                        "non_recyclable_plastic_volume": {
+                            "type": "Integer",
+                            "label": "Volume (L)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        },
+
+                        "non_recyclable_plastic_big_volume": {
+                            "type": "Integer",
+                            "label": "Volumineux (L)",
+                            "description": "à y renseigner tous les déchets qui ne rentrent pas dans un sac",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        }
+                    }
+                },
+
+                "recyclable_plastic": {
+                    "label": "Plastique recyclable",
+                    "datas": {
+                        "recyclable_plastic_weight": {
+                            "type": "Integer",
+                            "label": "Poids (kg)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "kg"
+                        },
+
+                        "recyclable_plastic_volume": {
+                            "type": "Integer",
+                            "label": "Volume (L)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        },
+
+                        "recyclable_plastic_big_volume": {
+                            "type": "Integer",
+                            "label": "Volumineux (L)",
+                            "description": "à y renseigner tous les déchets qui ne rentrent pas dans un sac",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        }
+                    }
+                },
+
+                "metal": {
+                    "label": "Métal",
+                    "datas": {
+                        "metal_weight": {
+                            "type": "Integer",
+                            "label": "Poids (kg)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "kg"
+                        },
+
+                        "metal_volume": {
+                            "type": "Integer",
+                            "label": "Volume (L)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        },
+
+                        "metal_big_volume": {
+                            "type": "Integer",
+                            "label": "Volumineux (L)",
+                            "description": "à y renseigner tous les déchets qui ne rentrent pas dans un sac",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        }
+                    }
+                },
+
+                "glass": {
+                    "label": "Verre et céramique",
+                    "datas": {
+                        "glass_weight": {
+                            "type": "Integer",
+                            "label": "Poids (kg)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "kg"
+                        },
+
+                        "glass_volume": {
+                            "type": "Integer",
+                            "label": "Volume (L)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        },
+
+                        "glass_big_volume": {
+                            "type": "Integer",
+                            "label": "Volumineux (L)",
+                            "description": "à y renseigner tous les déchets qui ne rentrent pas dans un sac",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        }
+                    }
+                },
+
+                "textile": {
+                    "label": "Textile",
+                    "datas": {
+                        "textile_weight": {
+                            "type": "Integer",
+                            "label": "Poids (kg)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "kg"
+                        },
+
+                        "textile_volume": {
+                            "type": "Integer",
+                            "label": "Volume (L)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        },
+
+                        "textile_big_volume": {
+                            "type": "Integer",
+                            "label": "Volumineux (L)",
+                            "description": "à y renseigner tous les déchets qui ne rentrent pas dans un sac",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        }
+                    }
+                },
+
+                "paper": {
+                    "label": "Papier et carton",
+                    "datas": {
+                        "paper_weight": {
+                            "type": "Integer",
+                            "label": "Poids (kg)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "kg"
+                        },
+
+                        "paper_volume": {
+                            "type": "Integer",
+                            "label": "Volume (L)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        },
+
+                        "paper_big_volume": {
+                            "type": "Integer",
+                            "label": "Volumineux (L)",
+                            "description": "à y renseigner tous les déchets qui ne rentrent pas dans un sac",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        }
+                    }
+                },
+
+                "wood": {
+                    "label": "Bois",
+                    "datas": {
+                        "wood_weight": {
+                            "type": "Integer",
+                            "label": "Poids (kg)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "kg"
+                        },
+
+                        "wood_volume": {
+                            "type": "Integer",
+                            "label": "Volume (L)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        },
+
+                        "wood_big_volume": {
+                            "type": "Integer",
+                            "label": "Volumineux (L)",
+                            "description": "à y renseigner tous les déchets qui ne rentrent pas dans un sac",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        }
+                    }
+                },
+
+                "rubber": {
+                    "label": "Caoutchouc",
+                    "datas": {
+                        "rubber_weight": {
+                            "type": "Integer",
+                            "label": "Poids (kg)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "kg"
+                        },
+
+                        "rubber_volume": {
+                            "type": "Integer",
+                            "label": "Volume (L)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        },
+
+                        "rubber_big_volume": {
+                            "type": "Integer",
+                            "label": "Volumineux (L)",
+                            "description": "à y renseigner tous les déchets qui ne rentrent pas dans un sac",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        }
+                    }
+                },
+
+                "other": {
+                    "label": "Autre",
+                    "datas": {
+                        "other_weight": {
+                            "type": "Integer",
+                            "label": "Poids (kg)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "kg"
+                        },
+
+                        "other_volume": {
+                            "type": "Integer",
+                            "label": "Volume (L)",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        },
+
+                        "other_big_volume": {
+                            "type": "Integer",
+                            "label": "Volumineux (L)",
+                            "description": "à y renseigner tous les déchets qui ne rentrent pas dans un sac",
+                            "required": false,
+                            "fillable": true,
+                            "dimension": "L"
+                        }
+                    }
+                }
+            }
+        },
+
+        "specific_waste": {
+            "label": "Déchets spécifiques",
+            "datas": {
+                "specific_waste": {
+                    "type": "HasMany",
+                    "label": "Déchets spécifiques",
+                    "required": false,
+                    "fillable": true,
+                    "settings": {
+                        "addable": true,
+                        "selectable": false
                     }
                 }
             }

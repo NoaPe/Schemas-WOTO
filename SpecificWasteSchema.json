@@ -4,6 +4,13 @@
             "render": "one-line",
             
             "datas": {
+                "depollution_id": {
+                    "label": "Identifiant de la dépollution",
+                    "type": "BelongsTo",
+                    "hidden": true,
+                    "required": true
+                },
+
                 "name": {
                     "type": "String",
                     "required": true,
