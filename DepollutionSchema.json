@@ -41,7 +41,9 @@
                     "required": true,
                     "fillable": true,
                     "settings": {
-                        "class": "App\\Shells\\Place"
+                        "class": "App\\Shells\\Place",
+                        "addable": false,
+                        "selectable": true
                     }
                 }
             }
@@ -55,7 +57,9 @@
                     "required": true,
                     "fillable": true,
                     "settings": {
-                        "class": "App\\Shells\\Crew"
+                        "class": "App\\Shells\\Crew",
+                        "addable": false,
+                        "selectable": true
                     }
                 },
 
@@ -173,11 +177,7 @@
 
         "indicator_waste_level_2": {
             "label": "Nombre de déchets indicateurs niveau 2.",
-            "description": `Chaque section de la caractérisation des déchets se fait indépendamment.
-            Les déchets qui sont caractérisés dans une partie ne se substituent pas aux autres.
-            ex : quand j'ai compté le nombre de bouteilles en plastique dans les déchets indicateurs,
-            je vais également mesurer leurs poids et volume (et je peux les renseigner en déchets
-            spécifique en plus dans le cas d'une marque prédominante par exemple)`,
+            "description": "Chaque section de la caractérisation des déchets se fait indépendamment. Les déchets qui sont caractérisés dans une partie ne se substituent pas aux autres. ex : quand j'ai compté le nombre de bouteilles en plastique dans les déchets indicateurs, je vais également mesurer leurs poids et volume (et je peux les renseigner en déchets spécifique en plus dans le cas d'une marque prédominante par exemple)",
             "render": "one-column",
             "datas": {
                 "plastic_bottle": {
@@ -250,11 +250,7 @@
 
         "indicator_waste_level_3": {
             "label": "Nombre de déchets indicateurs niveau 3.",
-            "description": `Chaque section de la caractérisation des déchets se fait indépendamment.
-            Les déchets qui sont caractérisés dans une partie ne se substituent pas aux autres.
-            ex : quand j'ai compté le nombre de bouteilles en plastique dans les déchets indicateurs,
-            je vais également mesurer leurs poids et volume (et je peux les renseigner en déchets
-            spécifique en plus dans le cas d'une marque prédominante par exemple)`,
+            "description": "Chaque section de la caractérisation des déchets se fait indépendamment. Les déchets qui sont caractérisés dans une partie ne se substituent pas aux autres. ex : quand j'ai compté le nombre de bouteilles en plastique dans les déchets indicateurs, je vais également mesurer leurs poids et volume (et je peux les renseigner en déchets spécifique en plus dans le cas d'une marque prédominante par exemple)",
             "datas": {
                 "household_device": {
                     "type": "Integer",
@@ -840,6 +836,7 @@
                     "required": false,
                     "fillable": true,
                     "settings": {
+                        "class": "App\\Shells\\SpecificWaste",
                         "addable": true,
                         "selectable": false
                     }
