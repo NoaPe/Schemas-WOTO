@@ -8,7 +8,10 @@
                     "label": "Identifiant de la dépollution",
                     "type": "BelongsTo",
                     "hidden": true,
-                    "required": true
+                    "required": true,
+                    "settings": {
+                        "class": "App\\Shells\\Depollution"
+                    }
                 },
 
                 "name": {
